@@ -15,8 +15,8 @@ public class Arena {
     public Arena(int width, int height) {
         this.width = width;
         this.height = height;
-        hero = new Hero(10, 10); // Initial position of the hero
-        walls = createWalls(); // Create walls in the arena
+        hero = new Hero(10, 10);
+        walls = createWalls();
     }
 
     private List<Wall> createWalls() {
@@ -32,7 +32,6 @@ public class Arena {
         return walls;
     }
 
-    // Other methods
 
     public void draw(TextGraphics textGraphics) {
         textGraphics.setBackgroundColor(TextColor.Factory.fromString("#336699"));
@@ -40,7 +39,6 @@ public class Arena {
 
         hero.draw(textGraphics);
 
-        // Draw the walls
         for (Wall wall : walls) {
             wall.draw(textGraphics);
         }
@@ -55,5 +53,4 @@ public class Arena {
         return !walls.contains(position);
     }
 
-    // Other methods
 }
