@@ -1,5 +1,9 @@
 plugins {
-    id("java")
+    id 'java'
+    id 'application'
+}
+application{
+    mainClass.set("Application")
 }
 
 group = "org.example"
@@ -7,6 +11,11 @@ version = "1.0-SNAPSHOT"
 
 repositories {
     mavenCentral()
+}
+
+dependencies {
+    implementation group: 'com.googlecode.lanterna', name:
+            'lanterna', version: '3.1.1'
 }
 
 dependencies {
