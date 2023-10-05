@@ -2,7 +2,7 @@ import com.googlecode.lanterna.graphics.TextGraphics;
 
 import javax.swing.text.Position;
 
-public class Hero {
+public class Hero extends Element {
     private Position position;
 
     public Hero(int initialX, int initialY) {

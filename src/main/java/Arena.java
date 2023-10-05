@@ -5,6 +5,7 @@ import com.googlecode.lanterna.graphics.TextGraphics;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class Arena {
     private int width;
@@ -12,11 +13,11 @@ public class Arena {
     private Hero hero;
     private List<Wall> walls;
 
-    public Arena(int width, int height) {
+    public Arena(int width, int height, walls) {
         this.width = width;
         this.height = height;
-        hero = new Hero(10, 10);
-        walls = createWalls();
+        this.hero = new Hero(10, 10);
+        this.walls = createWalls();
     }
 
     private List<Wall> createWalls() {
@@ -53,4 +54,21 @@ public class Arena {
         return !walls.contains(position);
     }
 
-}
+    private List<Coin> createCoins() {
+        Random random = new Random();
+        ArrayList<Coin> coins = new ArrayList<>();
+        for (int i = 0; i < 5; i++) {
+            coins.add(new Coin(random.nextInt(width - 2) + 1, random.nextInt(height - 2) + 1));
+        }
+        return coins;
+    }
+    public void retrieveCoins() {
+        List<Coin> collectedCoins = new ArrayList<>();
+        for (Coin coin : coins) {
+            if (!coin.getPosition().equals(hero.getPosition())) {
+                collectedCoins.add(coin);
+            }
+        }
+        coins = collectedCoins;
+
+    }
