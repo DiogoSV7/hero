@@ -7,19 +7,28 @@ public class Position {
         this.y = y;
     }
 
-    public int getX() {
+
+    public int get_x(){
         return x;
     }
-
-    public void setX(int x) {
-        this.x = x;
-    }
-
-    public int getY() {
+    public int get_y(){
         return y;
     }
 
-    public void setY(int y) {
+    public void set_x(int x){
+        this.x = x;
+    }
+
+    public void set_y(int y){
         this.y = y;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null) return false;
+        if (getClass() != o.getClass()) return false;
+        Position p = (Position) o;
+        return x == p.get_x() && y == p.get_y();
     }
 }
